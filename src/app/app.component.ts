@@ -12,6 +12,7 @@ export class AppComponent {
   public signInEmail: string;
   public signInPassword: string;
   public jwt: string;
+  public newPwd: string;
 
   constructor(private http: HttpClient) { }
 
@@ -41,12 +42,10 @@ export class AppComponent {
       localStorage.setItem('token', res.token);
       localStorage.setItem('expires', res.expiresIn);
     });
-
+    
   }
 
   testRoute() {
-
-
     this.http.get('http://localhost:3000/users/test').subscribe((res) => {
       console.log(res);
     });
@@ -60,8 +59,20 @@ export class AppComponent {
   }
 
   logout() {
+    if (this.jwt) console.log('singing out');
     this.jwt = null;
     localStorage.clear();
+    console.log('singed out');
   }
+
+  // changePassword() {
+  //   const credentials = {
+  //     email,
+  //     newPassword: this.newPwd
+  //   }
+  //   this.http.patch('http://localhost:3000/users', credentials).subscribe(res: any => {
+
+  //   })
+  // }
 
 }

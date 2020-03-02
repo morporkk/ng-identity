@@ -11,6 +11,7 @@
 >
 <button (click)="createAccount()">Register</button>
 <hr>
+
 <h3>Sign In</h3>
 <input 
   type="text"
@@ -24,6 +25,16 @@
 >
 <button (click)="signIn()" color="primary">Sign In</button>
 
-<button (click)="testRoute()" color="light">Test Protected Route</button>
+<button (click)="testRoute()" color="light">Test Guard</button>
 
 <button (click)="logout()" color="light">Logout</button>
+<hr>
+
+<h3>Change Pswd</h3>
+<input 
+  type="password"
+  placeholder="new password"
+  [(ngModel)]="newPwd"
+>
+<br>
+<button>Submit</button>
