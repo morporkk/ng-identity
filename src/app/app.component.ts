@@ -46,16 +46,22 @@ export class AppComponent {
 
   testRoute() {
 
-    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.jwt)
 
-    this.http.get('http://localhost:3000/users/test', { headers: headers }).subscribe((res) => {
+    this.http.get('http://localhost:3000/users/test').subscribe((res) => {
       console.log(res);
     });
+
+    // let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.jwt)
+
+    // this.http.get('http://localhost:3000/users/test').subscribe((res) => {
+    //   console.log(res);
+    // });
 
   }
 
   logout() {
     this.jwt = null;
+    localStorage.clear();
   }
 
 }
